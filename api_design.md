@@ -1,77 +1,124 @@
 
-# Database diagram
+# API design
 
+### Headers
 
-### Schema
+Every endpoint call should include an authentication-
 
+### Endpoints
 
+#### List of guides
 
-### Structure of jsonb columns
+```
+GET /guides
 
-The following example applies to the jsonb columns of **guide_template** and **guide_data** in tables ***guides*** and ***guide_learners*** respectively:
+Request Payload: {}
 
-
-```javascript
+Request Response:
 [
-   {
-      "id":"111",
-      "title":"First Guide",
-      "sections":[
-         {
-            "id":"1",
-            "title":"hello",
-            "tasks":[
-               {
-                  "id":"11",
-                  "title":"First Task",
-                  "blocks":[
-                     {
+    { 
+        id: "1", 
+        title: "Guide 1"
+    }, { 
+        id: "2", 
+        title: "Guide 2"
+    }
+]
+```
+
+#### Detail of guide by id
+
+```
+GET /guides/{id}
+
+Request Payload: {}
+
+Request Response:
+
+{
+    id: "1",
+    title: "First Guide",
+    sections: [{
+        id: "1",
+        title: "First Section",
+        tasks: [
+            {
+                id: "1",
+                title: "First task",
+                blocks: [
+                    {
                         "id":"1",
                         "type":"text",
-                        "can_be_evauated":false,
                         "content":{
                            "statement":"New text content"
                         }
                      },
-                     {
-                        "id":"2",
-                        "type":"input",
-                        "can_be_evauated":true,
+                ]
+            }
+        ]
+    },
+    {
+        id: "2",
+        title: "Second Section",
+        tasks: [
+            {
+                id: "3",
+                title: "Third task",
+                blocks: [
+                    {
+                        "id":"5",
+                        "type":"video",
                         "content":{
-                           "question":"What is the capital of Spain?",
-                           "answer":""
+                           "url":"https://vimeo.com/02c54fd0-03e2-4f1d-9b7c-7457c4d1775a"
                         }
-                     },
-                     {
+                     }
+                ]
+            }
+        ]
+    }]
+}
+```
+
+#### Update guide by id
+
+```
+PATCH /guides/{id}
+
+Request Payload:
+
+{
+    id: "1",
+    sections: [{
+        id: "1",
+        tasks: [
+            {
+                id: "1",
+                title: "First task",
+                blocks: [
+                    {
                         "id":"3",
                         "type":"multi_choice",
-                        "can_be_evauated":true,
                         "content":{
                            "question" : "What are the official languages of Peru?",
                            "options" : [
                               {
                                  "description": "English",
-                                 "is_selected": false,
                                  "is_correct": false
                               },
                               {
                                  "description": "Spanish",
-                                 "is_selected": false,
                                  "is_correct": true
                               },
                               {
                                  "description": "Portuguese",
-                                 "is_selected": false,
                                  "is_correct": false
                               },
                               {
                                  "description": "Quechua",
-                                 "is_selected": false,
                                  "is_correct": false
                               },
                               {
                                  "description": "Aymara",
-                                 "is_selected": false,
                                  "is_correct": false
                               },
                            ] 
@@ -80,23 +127,41 @@ The following example applies to the jsonb columns of **guide_template** and **g
                      {
                         "id":"4",
                         "type":"image",
-                        "can_be_evauated":false,
                         "content":{
                            "url":"https://remotely-platform.s3.eu-central-1.wasabisys.com/pictures/ad25b765-ab2a-42b4-ac78-00e851f6fbb6.jpg"
                         }
                      },
-                     {
-                        "id":"5",
-                        "type":"video",
-                        "can_be_evauated":false,
+                ]
+            },
+            {
+                id: "2",
+                title: "Second task",
+                blocks: [
+                    {
+                        "id":"2",
+                        "type":"input",
                         "content":{
-                           "url":"https://vimeo.com/02c54fd0-03e2-4f1d-9b7c-7457c4d1775a"
+                           "question":"What is the capital of Spain?",
                         }
-                     }
-                  ]
-               }
-            ]
-         }
-      ]
-   }
-]
+                     },
+                ]
+            }
+        ]
+    }]
+}
+
+Request Response: {}
+
+```
+
+#### Delete a guide by id
+
+```
+
+DELETE /guides/{id}
+
+Request Payload: {}
+Request Response: {}
+
+
+```

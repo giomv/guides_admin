@@ -32,6 +32,20 @@ const BlocksList: React.FC<Props> = ({onControlSelected}) => {
                 onControlSelected("multichoice")
             }}
            />
+           <BlockButton 
+            iconName={"image"} 
+            buttonText={"Image"} 
+            action={()=>{
+                onControlSelected("image")
+            }}
+           />
+           <BlockButton 
+            iconName={"video"} 
+            buttonText={"Video"} 
+            action={()=>{
+                onControlSelected("video")
+            }}
+           />
         </div>
     )
 }

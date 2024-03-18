@@ -35,7 +35,6 @@ const GuideStructure: React.FC <Props> = ({
                     </ul>
                 </div>
            ))}
-           <button>Add</button>
         </div>
     )
 }

@@ -10,6 +10,8 @@ import React, { ReactElement, useEffect, useState } from "react";
 import { v4 as uuid } from 'uuid'
 import { useParams, redirect } from 'next/navigation'
 import { FAKE_DATA } from "@/constants";
+import ImageControl from "@/components/ImageControl";
+import VideoControl from "@/components/VideoControl";
 
 const Page = () => {
 
@@ -56,6 +58,18 @@ const Page = () => {
                     element: <MultipleChoiceControl key={newId} id={newId} onRemoveBlock={onRemoveBlock} />
                 }
                 break;
+            case "image":
+                selectedControl = {
+                    id: newId,
+                    element: <ImageControl key={newId} id={newId} onRemoveBlock={onRemoveBlock} />
+                }
+            break;
+            case "video":
+                selectedControl = {
+                    id: newId,
+                    element: <VideoControl key={newId} id={newId} onRemoveBlock={onRemoveBlock} />
+                }
+            break;
         }
 
         if (selectedControl) {
