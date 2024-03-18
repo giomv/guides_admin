@@ -4,7 +4,7 @@
 
 ### Schema
 
-I opted for a relational DB because most of the data managed for this guides admin is not going to frequently change. The user management require to handle guides assignation follows a defined structure. However, I opted to store the data from the guides (sections, tasks and blocks) in jsonb columns, because it allows to be more flexible around the structure, specially the blocks of content, which could have different structures and this type of column could allow to easily include new content types. 
+I opted for a relational DB because most of the data managed for this guides admin is not going to frequently change. The user management required to handle guides assignation follows a defined structure. However, I opted to store the data from the guides (sections, tasks and blocks) in jsonb columns, because it allows to be more flexible around the structure, specially the blocks of content, which have different structures and this type of column could allow to easily include new content types. 
 
 ![database diagram](https://github.com/giomv/guides_admin/blob/main/public/WorkRampDB.drawio.png?raw=true)
 
