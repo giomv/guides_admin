@@ -22,4 +22,4 @@ Right now, you could go to two different guides with the fake data in this proje
 
 ### Attached documentation
 
-Here you can find the required documentation for the [API Design](https://github.com/giomv/guides_admin/blob/main/api_design.md) and the [Database Schema](https://github.com/giomv/guides_admin/blob/main/db_diagram.md)
+Here you can find the required documentation for the [API Design](https://github.com/giomv/guides_admin/blob/main/api_design.md) and the [Database Schema](https://github.com/giomv/guides_admin/blob/main/db_schema.md)

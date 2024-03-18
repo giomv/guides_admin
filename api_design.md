@@ -3,7 +3,7 @@
 
 ### Headers
 
-Every endpoint call should include an authentication-
+Every endpoint call should include an authentication-token
 
 ### Endpoints
 
